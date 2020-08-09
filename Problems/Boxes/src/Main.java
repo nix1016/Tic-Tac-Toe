@@ -6,13 +6,39 @@ public class Main {
 
         int[] x = new int[3];
         int[] y = new int[3];
-        x[1] = scanner.nextInt();
-        x[2] = scanner.nextInt();
-        x[3] = scanner.nextInt();
-        y[1] = scanner.nextInt();
-        y[2] = scanner.nextInt();
-        y[3] = scanner.nextInt();
 
-        
+        for (int i = 0; i < 3; i++) {
+            x[i] = scanner.nextInt();
+        }
+
+        for (int i = 0; i < 3; i++) {
+            y[i] = scanner.nextInt();
+        }
+
+        Arrays.sort(x);
+        Arrays.sort(y);
+
+        String comparison = "";
+
+        for (int i = 0; i < 3; i++) {
+            if (x[i] < y[i]) {
+                if (comparison == "Box 1 > Box 2") {
+                    comparison = "Incomparable";
+                } else {
+                    comparison = "Box 1 < Box 2";
+                }
+            } else if (x[i] > y[i]) {
+                if (comparison == "Box 1 < Box 2") {
+                    comparison = "Incomparable";
+                } else {
+                    comparison = "Box 1 > Box 2";
+                }
+            } else if (comparison == "") {
+                comparison = "Box 1 = Box 2";
+            }
+        }
+
+        System.out.println(comparison);
+
     }
 }
